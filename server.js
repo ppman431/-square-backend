@@ -8,11 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 const client = new Client({
-  accessToken: process.env."EAAAl1X_HitPk0dIe4THfetBCVvB6z5d7iRy_XxQT4-wlWVca3YE0gbSc32uZ7bf",
+  accessToken: process.env.SQUARE_ACCESS_TOKEN,
   environment: "production"
 });
 
-const locationId = process.env."LYS2S6BQKW7A9";
+const locationId = process.env.SQUARE_LOCATION_ID;
 
 app.post("/create-checkout", async (req, res) => {
   try {
