@@ -27,12 +27,15 @@ app.post("/create-checkout", async (req, res) => {
       }
     }));
 
-    const response = await client.checkoutApi.createPaymentLink({
-      order: {
-        locationId,
-        lineItems
-      }
-    });
+  const response = await client.checkoutApi.createPaymentLink({
+  order: {
+    locationId,
+    lineItems
+  },
+  checkoutOptions: {
+    askForShippingAddress: true
+  }
+});
 
     res.json({
       checkoutUrl: response.result.paymentLink.url
