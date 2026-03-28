@@ -28,10 +28,18 @@ app.post("/create-checkout", async (req, res) => {
     }));
 
   const response = await client.checkoutApi.createPaymentLink({
-  order: {
-    locationId,
-    lineItems
-  },
+ order: {
+  locationId,
+  lineItems,
+  taxes: [
+    {
+      uid: "sales-tax",
+      name: "Texas Sales Tax",
+      percentage: "8.25",
+      scope: "ORDER"
+    }
+  ]
+}
   checkoutOptions: {
     askForShippingAddress: true
   }
