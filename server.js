@@ -39,7 +39,7 @@ app.post("/create-checkout", async (req, res) => {
       scope: "ORDER"
     }
   ]
-}
+},
   checkoutOptions: {
     askForShippingAddress: true
   }
